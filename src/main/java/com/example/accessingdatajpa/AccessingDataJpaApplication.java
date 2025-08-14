@@ -34,7 +34,8 @@ public class AccessingDataJpaApplication {
 				}
 				return cb.conjunction();
 			};
-			var pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.by("firstName").ignoreCase()));
+			var order = Sort.Order.by("firstName").ignoreCase();
+			var pageable = PageRequest.of(0, 10, Sort.by(order));
 			repository.findAll(spec, pageable);
 		};
 	}
